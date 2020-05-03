@@ -1,6 +1,7 @@
 # Tutorial do projeto de Aplicação de Gestão de Conteúdo
 
 Autor: Leonardo Marcelino Vieira
+Repositório GIT: https://github.com/Zugruul/gerenciador-referencias-bibliogr-ficas
 
 ## Enunciado
 
