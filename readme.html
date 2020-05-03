@@ -1,0 +1,1285 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>readme.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="tutorial-do-projeto-de-aplica%C3%A7%C3%A3o-de-gest%C3%A3o-de-conte%C3%BAdo">Tutorial do projeto de Aplicação de Gestão de Conteúdo</h1>
+<p>Autor: Leonardo Marcelino Vieira
+Repositório GIT: https://github.com/Zugruul/gerenciador-referencias-bibliogr-ficas</p>
+<h2 id="enunciado">Enunciado</h2>
+<p>Você pode ver o enunciado deste trabalho <a href="enunciado.md">aqui</a>.</p>
+<h2 id="sobre-as-tecnologias">Sobre as Tecnologias</h2>
+<p>Foram escolhidas as seguintes tecnologias para desenvolver trabalho:</p>
+<ul>
+<li>Node.js para o Backend da aplicação;</li>
+<li>React.js para o Frontend da aplicação;</li>
+<li>Docker para conteinerização e deploy da aplicação;</li>
+</ul>
+<h2 id="rodando-o-projeto-rapidamente">Rodando o projeto rapidamente</h2>
+<ol>
+<li>Execute <code>$ docker-compose up</code> na pasta do backend para subir uma instancia do MySQL</li>
+<li>Execute <code>$ npm install</code> nas pastas do backend e do frontend para instalar dependencias</li>
+<li>Execute <code>$ npm start</code> na pasta do backend.</li>
+<li>Execute <code>$ npm start</code> na pasta do frontend.</li>
+</ol>
+<p>Notas importantes:</p>
+<ul>
+<li>Nenhum dos ambientes está realmente configurado para produção. Por não ter se destinado a isso e por falta de tempo para realmente fazê-lo.</li>
+<li>Está hardcodado na frontend as URLs do backend. Se portas vierem a mudar, deverá ser alterado em nos dois componentes que fazem chamadas de API.</li>
+</ul>
+<h3 id="nodejs">NodeJS</h3>
+<p>O <a href="https://nodejs.org/en/">Node.js</a> é um interpretador de JavaScript construido em cima da engine V8 do Google Chrome. Foi criado em 2009 por Ryan Dahl. Ganhou grande sucesso e repercussão visto que permite que uma única linguagem (o Javascript) seja usado para desenvolvimento tanto de aplicações Web quanto de Serviços (Backend) que estas necessitam.</p>
+<h3 id="reactjs">React.js</h3>
+<p>O <a href="https://pt-br.reactjs.org/">React.js</a>, ou React de forma curta, é uma biblioteca javascript que deixa de lado as templates html para adotar o JSX (que tem um formato parecido, mas que a template fica em arquivos javascript junto com a implementação daquela parte da aplicação), tem como principios ser declarativo, reativo e utilizar de composição (acima de herença, de linguagens orientadas a objeto) para construir páginas webs e componentes para as mesmas. Por ser baseada em componentes, garante o encapsulamento dos mesmos, tornando reuso e composição de UIs utilizando diferentes componentes mais fácil.</p>
+<h3 id="docker">Docker</h3>
+<p>O <a href="https://www.docker.com/">Docker</a> fornece uma camada de abstração em cima de virtualizaçao de sistemas operacionais, permitindo isolamento de aplicações e autogerenciamento de recurso para execução e deploy ágil das mesmas. É construido em GOLang, linguagem da Google.</p>
+<h2 id="configura%C3%A7%C3%A3o-do-ambiente">Configuração do Ambiente</h2>
+<h3 id="subindo-nossa-inst%C3%A2ncia-de-mysql-usando-docker">Subindo nossa instância de MySQL usando Docker</h3>
+<p>Utilizaremos o docker para subir uma instância do banco de dados <a href="https://www.mysql.com/">MySQL</a> utilizando uma imagem disponível <a href="https://hub.docker.com/_/mysql">aqui</a> Para tal criaremos na pasta do nosso backend um arquivo chamado de <strong>docker-compose.yml</strong></p>
+<pre class="hljs"><code><div><span class="hljs-attr">version:</span> <span class="hljs-string">'3.1'</span>
+
+<span class="hljs-attr">services:</span>
+
+  <span class="hljs-attr">db:</span>
+    <span class="hljs-attr">image:</span> <span class="hljs-string">mysql</span>
+    <span class="hljs-attr">command:</span> <span class="hljs-string">--default-authentication-plugin=mysql_native_password</span>
+    <span class="hljs-attr">restart:</span> <span class="hljs-string">always</span>
+    <span class="hljs-attr">environment:</span>
+      <span class="hljs-attr">MYSQL_ROOT_PASSWORD:</span> <span class="hljs-string">example</span>
+      <span class="hljs-attr">MYSQL_DATABASE:</span> <span class="hljs-string">reference-manager</span>
+    <span class="hljs-attr">ports:</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-number">3306</span><span class="hljs-string">:3306</span>
+  <span class="hljs-attr">adminer:</span>
+    <span class="hljs-attr">image:</span> <span class="hljs-string">adminer</span>
+    <span class="hljs-attr">restart:</span> <span class="hljs-string">always</span>
+    <span class="hljs-attr">ports:</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-number">8080</span><span class="hljs-string">:8080</span>
+</div></code></pre>
+<p>Tendo Docker e Docker compose instalados, após seguir as instruções de instalação, podemos então subir este container que irá expor uma instância do adminer na porta 8080 e um servidor do MySQL na 3306. Execute o seguinte comando, no terminal na mesma pasta do arquivo docker-compose, para o mesmo:</p>
+<pre class="hljs"><code><div>$ docker-compose up
+</div></code></pre>
+<p>Na primeira vez que for utilizar uma determinada imagem, a mesma será baixada, como exemplo abaixo.</p>
+<p>Podemos parar a execução desse container com o seguinte comando:</p>
+<pre class="hljs"><code><div>$ docker-compose down
+</div></code></pre>
+<p>e para ver uma lista de containers sendo executados podemos executar o seguinte comando:</p>
+<pre class="hljs"><code><div>$ docker ps
+</div></code></pre>
+<p>Recomendo uma leitura sobre os demais comandos do <a href="https://docs.docker.com/engine/reference/commandline/docker/">docker clicando aqui</a> e do <a href="https://docs.docker.com/compose/reference/overview/">docker-compose clicando aqui</a>.</p>
+<p>Continuando de onde paramos, após terminado o download da imagem a mesma é utilizada como base para subir nossa aplicação. Se formos na aplicação rodando em <code>localhost:8080</code> na nossa máquina, veremos a interface do Adminer:</p>
+<p><img src="docker1.png" alt="Interface gráfica do adminer no navegador"></p>
+<p>Podemos logar com as seguintes credênciais conforme configurado no nosso docker-compose:</p>
+<pre class="hljs"><code><div>usuário: root
+senha: example
+base de dados: reference-manager
+</div></code></pre>
+<p>Lá temos um gerenciamos de banco de dados via interface gráfica, caso queiramos investigar ou averiguar algo.</p>
+<h4 id="como-instalar">Como instalar</h4>
+<p>Recomendo sempre ler as instruções na documentação oficial, além de seguir tutoriais como este, a caráter de brevidade e de estar o mais atualizado possível não irei entrar em detalhes de como instalar, mas sim redirecionar para o lugar apropriado.</p>
+<p>O Docker pode ser obtido para instalação gratuitamente <a href="https://www.docker.com/get-started">nesta página</a> ou <a href="https://docs.docker.com/engine/install/">aqui</a> se preferir instruções mais detalhadas. Após instalado também é necessário obtermos, para fins deste tutorial, o docker compose que você pode ver mais sobre <a href="https://docs.docker.com/compose/install/">aqui</a></p>
+<h3 id="instalando-o-nodejs">Instalando o Node.js</h3>
+<p>As últimas versões podem ser obtidas <a href="https://nodejs.org/en/">aqui</a>. Recomenda-se o uso da versão LTS vigente (Long-term support), visto que normalmente é a mais estável. Do momento que escrevo este artigo, estamos na versão 12.16.3 do Node.js, que será chamado de Node daqui para frente.</p>
+<p>Feita a instalação, estará disponível no Path do seu sistema operacional para uso via terminal.</p>
+<p>É possível rodar o comando <code>$ node</code> e obter um terminal interativo para execução de código Javascript. Se digitarmos:</p>
+<pre class="hljs"><code><div><span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Hello world'</span>)
+</div></code></pre>
+<p>Teremos o clássico exemplo do hello world, mas em javascript!</p>
+<p><img src="node1.png" alt="hello world em javascript"></p>
+<p>É possivel executar um arquivo .js passando o path até o mesmo como parâmetro:</p>
+<pre class="hljs"><code><div>$ node app.js 
+</div></code></pre>
+<h4 id="criando-o-projeto-do-backend">Criando o projeto do Backend</h4>
+<p>Para iniciarmos um projeto novo devemos executar o seguinte comando:</p>
+<pre class="hljs"><code><div>$ npm init
+</div></code></pre>
+<p>Isto irá criar o arquivo package.json, após uma série de perguntas, para podermos compartilhar o mesmo com outros desenvolvedores e estes de forma ágil conseguirem instalar as dependencias do projeto e executar scripts de inicialização e desenvolvimento que configurarmos.</p>
+<p>Após executado teremos algo assim:</p>
+<pre class="hljs"><code><div>{
+  <span class="hljs-attr">"name"</span>: <span class="hljs-string">"backend"</span>,
+  <span class="hljs-attr">"version"</span>: <span class="hljs-string">"1.0.0"</span>,
+  <span class="hljs-attr">"description"</span>: <span class="hljs-string">""</span>,
+  <span class="hljs-attr">"main"</span>: <span class="hljs-string">"index.js"</span>,
+  <span class="hljs-attr">"scripts"</span>: {
+    <span class="hljs-attr">"test"</span>: <span class="hljs-string">"echo \"Error: no test specified\" &amp;&amp; exit 1"</span>
+  },
+  <span class="hljs-attr">"author"</span>: <span class="hljs-string">"Leonardo Marcelino Vieira"</span>,
+  <span class="hljs-attr">"license"</span>: <span class="hljs-string">"MIT"</span>
+}
+</div></code></pre>
+<p>Crie uma apsta chamada src, ou como preferir, dentro dela um arquivo chamado <code>server.js</code>. Vamos atualizar nosso package.json:</p>
+<pre class="hljs"><code><div>{
+  <span class="hljs-attr">"name"</span>: <span class="hljs-string">"backend"</span>,
+  <span class="hljs-attr">"version"</span>: <span class="hljs-string">"1.0.0"</span>,
+  <span class="hljs-attr">"description"</span>: <span class="hljs-string">""</span>,
+  <span class="hljs-attr">"main"</span>: <span class="hljs-string">"index.js"</span>,
+  <span class="hljs-attr">"scripts"</span>: {
+    <span class="hljs-attr">"start"</span>: <span class="hljs-string">"node src/server.js"</span>,
+    <span class="hljs-attr">"test"</span>: <span class="hljs-string">"echo \"Error: no test specified\" &amp;&amp; exit 1"</span>
+  },
+  <span class="hljs-attr">"author"</span>: <span class="hljs-string">"Leonardo Marcelino Vieira"</span>,
+  <span class="hljs-attr">"license"</span>: <span class="hljs-string">"MIT"</span>
+}
+</div></code></pre>
+<p>ali nos scripts adicionamos um comando para executar a aplicação e se colocar o nosso Hello world de antes e executarmos usando o comando abaixo você verá o output no terminal <em>Hello world</em> no terminal.</p>
+<pre class="hljs"><code><div>$ npm run start
+</div></code></pre>
+<h4 id="fazendo-nossa-primeira-api">Fazendo nossa primeira API</h4>
+<p>Vamos agora fazer uma API rodando uma simples rota na raiz da URL <code>http://localhost:3007</code> que nos retorna em texto Hello World.</p>
+<p>Primeiramente vamos utilizar o framework <a href="https://expressjs.com/pt-br/">Express</a> para Node.js, este irá lidar com toda a parte de HTTP e Rotas da nossa aplicação. Para instalar digite o seguinte:</p>
+<pre class="hljs"><code><div>$ npm install express body-parser cors
+</div></code></pre>
+<p>Vamos precisar também do middleware <a href="https://github.com/expressjs/body-parser">body-parser</a>, para mais tarde no processo de criação do nosso CRUD básico.</p>
+<p>Se quiser saber mais sobre dependências em Node, recomendo a seguinte leitura <a href="https://docs.npmjs.com/cli/install">aqui</a>.</p>
+<p>Feita a instalação temos agora na raiz do nosso projeto uma pasta node_modules, com todas as dependencias e dependencias de dependencias que instalamos. Da seguinte forma:</p>
+<p><img src="node2.png" alt="Pastas do projeto"></p>
+<p>Podemos agora, dentro do nosso <code>server.js</code> utilizar o seguinte código:</p>
+<pre class="hljs"><code><div><span class="hljs-keyword">const</span> express = <span class="hljs-built_in">require</span>(<span class="hljs-string">'express'</span>);
+<span class="hljs-keyword">const</span> bodyParser = <span class="hljs-built_in">require</span>(<span class="hljs-string">'body-parser'</span>);
+<span class="hljs-keyword">const</span> cors = <span class="hljs-built_in">require</span>(<span class="hljs-string">'cors'</span>)
+<span class="hljs-keyword">const</span> app = express();
+<span class="hljs-keyword">const</span> PORT = <span class="hljs-number">3007</span>;
+
+app.use(bodyParser.urlencoded({
+  <span class="hljs-attr">extended</span>: <span class="hljs-literal">true</span>
+}));
+app.use(bodyParser.json());
+app.use(cors())
+
+app.get(<span class="hljs-string">'/'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">req, res</span>) </span>{
+  res.send(<span class="hljs-string">'Hello World!'</span>);
+});
+
+app.listen(PORT, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`App está rodando na porta <span class="hljs-subst">${PORT}</span>!`</span>);
+});
+</div></code></pre>
+<p>e rodando a aplicação utilizando <code>$ npm run start</code> e irmos até o navegador na página em <code>localhost:3007</code>, devemos ver o seguinte:</p>
+<p><img src="node3.png" alt="Hello World na página web"></p>
+<h4 id="passos-iniciais">Passos Iniciais</h4>
+<p>Além do express, devemos pensar que vamos ter um banco de dados e vamos precisar realizar queries no mesmo. Para tal existem algumas bibliotecas que facilitam nosso trabalho nos dando uma interface limpa e <strong>segura</strong> para realizar queries. Por que digo segura? Porque essas bibliotecas nos protegem de coisas como <a href="https://pt.wikipedia.org/wiki/Inje%C3%A7%C3%A3o_de_SQL">SQL injections</a> e outras vulnerabilidades de segurança, caso contrário teriamos que tomar muito <strong>mais</strong> cuidado com nossas implementações se trabalhassemos direto com o driver do banco de dados. Não é escopo deste tutorial isto, mas se quiser ler mais sobre recomendo fontes como as diversas páginas de segurança da web e de hacking do <a href="https://www.reddit.com/r/websecurity/">Reddit</a> lá diversos usuários discutem e compartilham noticias e tutoriais diariamente sobre diversas áreas.</p>
+<p>Para fins deste tutorial utilizaremos a biblioteca <a href="http://knexjs.org/">Knex.js</a> para ser nossa query-builder e MySQL2 como nossa biblioteca para comunicaçãoc om o driver MySQL. Para tal executaremos a sua instalação (note que podemos passar mais de uma biblioteca para instalarmos ao mesmo tempo):</p>
+<pre class="hljs"><code><div>$ npm install knex mysql2
+</div></code></pre>
+<p>Dai podemos configurar nosso knex. A biblioteca fornece um comando para inicializarmos um projeto usando a mesma. Para isso devemos instalar ela globalmente (<code>$ npm install knex -g</code>) e então executar <code>$ knex init</code>. Outra opção é executa-la usando o comando <code>$ npx knex init</code>, que instala ela temporariamente e executa esse comando, ou utiliza a versão instalada localmente no projeto, se estiver disponivel.</p>
+<p>Não entrarei em detalhes de proteger suas várias de ambiente utilizando javascript. Caso queira saber mais, veja <a href="https://github.com/motdotla/dotenv">isso aqui</a></p>
+<p>Além disso não utilizaremos, para fins deste tutorial, ambientes de desenvolvimento diferentes, mas já deixarei meio pré-configurado caso queiramos entrar no assunto futuramente, utilizaremos o knexfile criado na raiz do projeto conforme a seguir:</p>
+<pre class="hljs"><code><div>
+</div></code></pre>
+<p>Além disso criaremos na pasta <code>src</code> o arquivo knex.js que é uma instância configurada do knex utilizando estes parâmetros no knexfile:</p>
+<pre class="hljs"><code><div><span class="hljs-keyword">const</span> environment = process.env.ENVIRONMENT || <span class="hljs-string">'development'</span>
+<span class="hljs-keyword">const</span> config = <span class="hljs-built_in">require</span>(<span class="hljs-string">'../knexfile.js'</span>)[environment];
+<span class="hljs-built_in">module</span>.exports = <span class="hljs-built_in">require</span>(<span class="hljs-string">'knex'</span>)(config);
+</div></code></pre>
+<h4 id="etapa-de-planejamento-do-backend">Etapa de planejamento do Backend</h4>
+<p>Para cada individuo e organização este processo se dará de forma diferente. Seja uma especificação UML obtida no processo inicial de Engenharia de Requisitos ou outro processo, é importante identificar de forma inteligível so requisitos de cada sistema e subsistema, necessidades de interface gráfica, dados que seram mostrados, etc.</p>
+<p>A minha abordagem predileta é expor de forma alto nivel os dados necessários das diversas partes da aplicação, da seguinte forma. Exemplo abaixo:</p>
+<p><img src="especification1.png" alt="Página de lista de referencias">
+<img src="especification2.png" alt="Página de adicionar referencia"></p>
+<p>Nós temos informação estática no topo, assim como cabeçalhos também estáticos, tempos um botão para adicionar referencias e dois referentes a sorting.</p>
+<p>Dos dados então temos os seguintes campos que devemos obter de um servidor externo:</p>
+<pre class="hljs"><code><div><span class="hljs-bullet">  - </span>id
+<span class="hljs-bullet">  - </span>title
+<span class="hljs-bullet">  - </span>authors
+<span class="hljs-bullet">  - </span>edition
+<span class="hljs-bullet">  - </span>year
+<span class="hljs-bullet">  - </span>pages
+<span class="hljs-bullet">  - </span>type: ['InProceedings', 'JMPaper', 'Book', 'Excerpt]
+<span class="hljs-bullet">  - </span>nature: ['complete', 'summarized', 'simple', 'expanded]
+<span class="hljs-bullet">  - </span>reach: ['national', 'international]
+<span class="hljs-bullet">  - </span>status: ['accepted', 'rejected', 'ongoing]
+<span class="hljs-bullet">  - </span>accessDate
+<span class="hljs-bullet">  - </span>publicationPlace
+<span class="hljs-bullet">  - </span>organizer
+<span class="hljs-bullet">  - </span>publisher
+<span class="hljs-bullet">  - </span>availableAt
+</div></code></pre>
+<p>Essa é uma analise bem crua, mas é bom inicio para resolução do problema.</p>
+<h4 id="crud-b%C3%A1sico-de-lista-de-referencias">CRUD Básico de Lista de Referencias</h4>
+<p>Para organizar tudo, será criada uma pasta services, com serviços de manipulação basicos dos nossos dados para todas as operações (Create, Read, Update, Delete), detalhadamente em Read irei separar em duas categorias: Read and List, que respectivamente obtém um item apenas ou a lista com todos os itens de acordo com parâmetros especificados.</p>
+<p>para tal cria-se uma pasta <code>services</code>, dentro da <code>backend</code> com um arquivo indice e um arquivo com o nome do serviço em si:</p>
+<pre class="hljs"><code><div>- backend
+  - services
+    - index.js
+    - references.js
+</div></code></pre>
+<p>Dentro deste <code>references.js</code> mapeamos o esqueleto do nosso serviço da seguinte forma:</p>
+<pre class="hljs"><code><div><span class="hljs-keyword">const</span> knex = <span class="hljs-built_in">require</span>(<span class="hljs-string">'../knex'</span>)
+
+<span class="hljs-built_in">module</span>.exports.create = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">reference</span>) </span>{
+
+}
+
+
+<span class="hljs-built_in">module</span>.exports.list = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">params</span>) </span>{
+  
+}
+
+<span class="hljs-built_in">module</span>.exports.read = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">id</span>) </span>{
+  
+}
+
+<span class="hljs-built_in">module</span>.exports.update = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">id, reference</span>) </span>{
+  
+}
+
+<span class="hljs-built_in">module</span>.exports.delete = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">id</span>) </span>{
+
+}
+</div></code></pre>
+<p>Para cada qual será feita a implementação de acordo com a documentação do Knex.js. Por exemplo abaixo temos a implementação de <code>list</code>:</p>
+<pre class="hljs"><code><div><span class="hljs-built_in">module</span>.exports.list = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">params</span>) </span>{
+	<span class="hljs-keyword">const</span> { orderBy, isDesc } = params || {}
+	<span class="hljs-keyword">const</span> order = isDesc ? <span class="hljs-string">'desc'</span> : <span class="hljs-string">'asc'</span>
+
+	<span class="hljs-keyword">return</span> instance()
+		.select()
+		.orderBy(orderBy || <span class="hljs-string">'id'</span>, order)
+}
+</div></code></pre>
+<p><strong>O que está acontecendo?</strong> Primeiramente selecionamos usando <em>select</em> os campos que queremos, neste exemplo rapido vou pegar todos, um shorthand disso é o <code>.select()</code> sem nenhum parâmetro. Segundo qual a tabela que devemos acessar, nesse caso queremos acessar a tabela <code>references</code>. Por fim coloquei uma clausula orderBy para termos opção de sorting via backend. Basta recebermos um objeto no seguinte formato, por exemplo, para termos sort por <code>referenceNature</code>:</p>
+<pre class="hljs"><code><div><span class="hljs-keyword">const</span> params = {
+  <span class="hljs-attr">orderBy</span>: <span class="hljs-string">'referenceNature'</span>
+}
+</div></code></pre>
+<p>Dessa forma alista viria ordenada alfabeticamente por referenceNature.</p>
+<p><strong>Demais implementações</strong> com uma pequena modificação, para não termos que especificar a tabela toda a vez neste arquivo, evitando erros e fazendo reuso de código temos a seguinte implementação para este serviço:</p>
+<pre class="hljs"><code><div><span class="hljs-keyword">const</span> knex = <span class="hljs-built_in">require</span>(<span class="hljs-string">'../knex'</span>)
+
+<span class="hljs-keyword">const</span> instance = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+	<span class="hljs-keyword">return</span> knex.table(<span class="hljs-string">'references'</span>)
+}
+
+<span class="hljs-built_in">module</span>.exports.create = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">reference</span>) </span>{
+	<span class="hljs-keyword">return</span> instance()
+		.insert(reference)
+}
+
+<span class="hljs-built_in">module</span>.exports.list = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">params</span>) </span>{
+	<span class="hljs-keyword">const</span> { orderBy, isDesc } = params || {}
+	<span class="hljs-keyword">const</span> order = isDesc ? <span class="hljs-string">'desc'</span> : <span class="hljs-string">'asc'</span>
+
+	<span class="hljs-keyword">return</span> instance()
+		.select()
+		.orderBy(orderBy || <span class="hljs-string">'id'</span>, order)
+}
+
+<span class="hljs-built_in">module</span>.exports.read = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">id</span>) </span>{
+	<span class="hljs-keyword">return</span> instance()
+		.select()
+		.where({ <span class="hljs-attr">id</span>: id })
+		.first()
+}
+
+<span class="hljs-built_in">module</span>.exports.update = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">reference</span>) </span>{
+	<span class="hljs-keyword">return</span> instance()
+		.update(reference)
+		.where({ <span class="hljs-attr">id</span>: reference.id })
+}
+
+<span class="hljs-built_in">module</span>.exports.delete = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">id</span>) </span>{
+	<span class="hljs-keyword">return</span> instance()
+		.delete()
+		.where({ <span class="hljs-attr">id</span>: id })
+}
+</div></code></pre>
+<p>A API do Knex.js pode ser vista <a href="http://knexjs.org/">aqui</a>. Se notar, nossa instancia do knex tem internamente diversos comandos, tais como, where, orderBy, first e assim vai. Esses comandos por composição formam a nossa query que posteriormente é executada. Não entrarei em detalhes sobre cada, mas é uma leitura muito interessante pela ideologia por trás da API fornecida, recomendo <a href="https://medium.com/better-programming/javascript-function-chaining-8b2fbef76f7f">esse artigo</a> sobre Chaining.</p>
+<p>A seguir implementaremos routing usando express para termos essas rotas disponiveis e uma forma de passar parâmetros para as mesmas. Veja mais sobre <a href="https://expressjs.com/pt-br/guide/routing.html">aqui</a>.</p>
+<p>O Express é baseado em middlewares, você pode ler mais sobre isso <a href="https://expressjs.com/pt-br/guide/using-middleware.html">aqui</a>. Portanto se quisermos adicionar novas rotas podemos fazer o seguinte:</p>
+<pre class="hljs"><code><div>app.route(<span class="hljs-string">'/references'</span>)
+  .get(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">req, res</span>) </span>{
+    res.send(<span class="hljs-string">'Get all references'</span>);
+  })
+  .post(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">req, res</span>) </span>{
+    res.send(<span class="hljs-string">'Add a reference'</span>);
+  })
+  .put(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">req, res</span>) </span>{
+    res.send(<span class="hljs-string">'Update the reference'</span>);
+  })
+  .delete(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">req, res</span>) </span>{
+    res.send(<span class="hljs-string">'Delete the reference'</span>);
+  })
+</div></code></pre>
+<p>Sendo esse objeto app, aquele objeto que definimos lá no começo da implementação. Sendo o objeto obtido da importação e execução do pacote do express, ou mais especificamente essa linha aqui:</p>
+<pre class="hljs"><code><div><span class="hljs-keyword">const</span> app = express();
+</div></code></pre>
+<p>Se batermos na <code>localhost:3007/references</code> obteremos a resposta da rota GET ali em cima definida. O mesmo vale para as demais se usarmos alguma aplicação, tal como <a href="https://www.postman.com/">Postman</a></p>
+<p><img src="node4.png" alt="Rota para pegar todas as referencias retornando o texto ali em cima definido"></p>
+<p>Para fins de simplicidade, em todas as rotas com excessão da de Criar Referência e de Atualizar Referencia, vamos usar query params, nestas duas. Vamos usar o body da request como base dos dados. Vamos á implementação:</p>
+<pre class="hljs"><code><div>app.route(<span class="hljs-string">'/references'</span>)
+  .get(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">req, res</span>) </span>{
+    <span class="hljs-keyword">const</span> { id, orderBy, isDesc } = req.query || {}
+
+    <span class="hljs-keyword">if</span>(id) {
+      services.references
+        .read(id)
+        .then(<span class="hljs-function"><span class="hljs-params">reference</span> =&gt;</span> res.send({ <span class="hljs-attr">status</span>: <span class="hljs-string">'success'</span>, <span class="hljs-attr">data</span>: reference }))
+        .catch(<span class="hljs-function"><span class="hljs-params">error</span> =&gt;</span> {
+          res.status(<span class="hljs-number">400</span>)
+          res.send({ <span class="hljs-attr">status</span>: <span class="hljs-string">'error'</span>, <span class="hljs-attr">message</span>: error.message })
+        })
+    } <span class="hljs-keyword">else</span> {
+      services.references
+        .list({ orderBy, isDesc })
+        .then(<span class="hljs-function"><span class="hljs-params">references</span> =&gt;</span> res.send({ <span class="hljs-attr">status</span>: <span class="hljs-string">'success'</span>, <span class="hljs-attr">data</span>: references }))
+        .catch(<span class="hljs-function"><span class="hljs-params">error</span> =&gt;</span> {
+          res.status(<span class="hljs-number">400</span>)
+          res.send({ <span class="hljs-attr">status</span>: <span class="hljs-string">'error'</span>, <span class="hljs-attr">message</span>: error.message })
+        })
+    }
+  })
+  .post(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">req, res</span>) </span>{
+    services.references
+      .create(req.body)
+      .then(<span class="hljs-function"><span class="hljs-params">reference</span> =&gt;</span> res.send({ <span class="hljs-attr">status</span>: <span class="hljs-string">'success'</span>, <span class="hljs-attr">data</span>: reference }))
+      .catch(<span class="hljs-function"><span class="hljs-params">error</span> =&gt;</span> {
+        res.status(<span class="hljs-number">400</span>)
+        res.send({ <span class="hljs-attr">status</span>: <span class="hljs-string">'error'</span>, <span class="hljs-attr">message</span>: error.message })
+      })
+  })
+  .put(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">req, res</span>) </span>{
+    services.references
+      .update(req.body)
+      .then(<span class="hljs-function"><span class="hljs-params">reference</span> =&gt;</span> res.send({ <span class="hljs-attr">status</span>: <span class="hljs-string">'success'</span>, <span class="hljs-attr">data</span>: reference }))
+      .catch(<span class="hljs-function"><span class="hljs-params">error</span> =&gt;</span> {
+        res.status(<span class="hljs-number">400</span>)
+        res.send({ <span class="hljs-attr">status</span>: <span class="hljs-string">'error'</span>, <span class="hljs-attr">message</span>: error.message })
+      })
+  })
+  .delete(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">req, res</span>) </span>{
+    services.references
+      .delete(req.query.id)
+      .then(<span class="hljs-function"><span class="hljs-params">reference</span> =&gt;</span> res.send({ <span class="hljs-attr">status</span>: <span class="hljs-string">'success'</span>, <span class="hljs-attr">data</span>: reference }))
+      .catch(<span class="hljs-function"><span class="hljs-params">error</span> =&gt;</span> {
+        res.status(<span class="hljs-number">400</span>)
+        res.send({ <span class="hljs-attr">status</span>: <span class="hljs-string">'error'</span>, <span class="hljs-attr">message</span>: error.message })
+      })
+  })
+</div></code></pre>
+<p>Feita essas implementações, estamos quase prontos para começarmos a implementação do front-end. A ultima coisa que falta é definir de vez e escrever uma migration para criarmos a tabela com todos seus campos.</p>
+<p>Migrations são maneiras de fazer o banco de dados atualizar-se devido a mudanças ou atualizações, criando, removendo tabelas ou atualizando essas tabelas com novas colunas, constraints. São feitas utilizando scripts e podemos construir esses scripts utilizando, no caso do knex, o seu CLI, executando, por exemplo o comando <code>knex migrate:make [nome-da-migration]</code>.</p>
+<p>Vamos criar a migration <code>init-database</code>. Nossa primeira que vai dar o mapa inicial do projeto. Se viermos a ter que alterar essa migration inicial, faremos outra migration da mesma forma. Execute o seguinte comando (com npx ja caso tenha ou não instalado global o cli do Knex.js):</p>
+<pre class="hljs"><code><div>$ npx knex migrate:make init-database
+</div></code></pre>
+<p>Note que surgiu uma pasta chamada migrations e dentro dela tempos um arquivo javascript com o seguinte formato: <code>[DATESTAMP]-init-database.js</code>. Podemos alterar os conteúdos deste arquivo para fazer diversas operações no nosso Database.</p>
+<p>Note que o conteúdo do arquivo é o seguinte:</p>
+<pre class="hljs"><code><div>exports.up = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">knex, Promise</span>) </span>{
+};
+
+exports.down = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">knex, Promise</span>) </span>{
+};
+</div></code></pre>
+<p>Neste arquivo devemos dar instruções de como realizar a operação (up) e desfaze-la (down). Essas funções devem sempre retornar uma promessa. Você pode ver mais sobre promessas <a href="https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Guide/Usando_promises">aqui</a>.</p>
+<p>Com base na minha análise anterior. Cheguei na seguinte migration:</p>
+<pre class="hljs"><code><div>exports.up = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">knex, Promise</span>) </span>{
+  <span class="hljs-keyword">return</span> knex.schema.createTable(<span class="hljs-string">'references'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">t</span>) </span>{
+      t.increments(<span class="hljs-string">'id'</span>).unsigned().primary();
+      t.string(<span class="hljs-string">'title'</span>).notNull();
+      t.string(<span class="hljs-string">'chapter'</span>).nullable();
+      t.string(<span class="hljs-string">'authors'</span>).notNull();
+      t.string(<span class="hljs-string">'edition'</span>).nullable();
+      t.string(<span class="hljs-string">'year'</span>).notNull();
+      t.string(<span class="hljs-string">'pages'</span>).nullable();
+      t.enum(<span class="hljs-string">'type'</span>, [<span class="hljs-string">'Periodic'</span>, <span class="hljs-string">'Proceedings'</span>, <span class="hljs-string">'Book'</span>, <span class="hljs-string">'Excerpt'</span>, <span class="hljs-string">'Eletronic'</span>]).defaultTo(<span class="hljs-literal">null</span>);
+      t.enum(<span class="hljs-string">'nature'</span>, [<span class="hljs-string">'complete'</span>, <span class="hljs-string">'summarized'</span>, <span class="hljs-string">'simple'</span>, <span class="hljs-string">'expanded'</span>]).defaultTo(<span class="hljs-literal">null</span>);
+      t.enum(<span class="hljs-string">'reach'</span>, [<span class="hljs-string">'national'</span>, <span class="hljs-string">'international'</span>]).defaultTo(<span class="hljs-string">'national'</span>);
+      t.enum(<span class="hljs-string">'status'</span>, [<span class="hljs-string">'accepted'</span>, <span class="hljs-string">'rejected'</span>, <span class="hljs-string">'ongoing'</span>]).notNull().defaultTo(<span class="hljs-string">'ongoing'</span>);
+      t.date(<span class="hljs-string">'accessDate'</span>).nullable();
+      t.string(<span class="hljs-string">'publicationPlace'</span>).defaultTo(<span class="hljs-string">'[S.l.]'</span>);
+      t.string(<span class="hljs-string">'organizer'</span>).nullable();
+      t.string(<span class="hljs-string">'publisher'</span>).defaultTo(<span class="hljs-string">'[s.n]'</span>);
+      t.string(<span class="hljs-string">'availableAt'</span>).nullable();
+  });
+};
+
+exports.down = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">knex, Promise</span>) </span>{
+    <span class="hljs-keyword">return</span> knex.schema.dropTable(<span class="hljs-string">'references'</span>);
+};
+</div></code></pre>
+<p>Agora tudo que falta é executarmos nossa migration. Para tal use o comando a seguir:</p>
+<pre class="hljs"><code><div>$ npx knex migrate:latest
+</div></code></pre>
+<p>Algo assim deve aparecer para você:
+<img src="node5.png" alt="Output da execução"></p>
+<p>e se averiguarmos no adminer teremos o seguinte:</p>
+<p><img src="node6.png" alt="Tabela criada com os campos que especificamos, vista no adminer"></p>
+<p>Agora estamos prontos para fazer nossa implementação no Front-end.</p>
+<h3 id="reactjs">React.JS</h3>
+<p>Para criarmos um projeto em React.js temos várias opções. Mas é muito importante ler a documentação do mesmo, começando por <a href="https://pt-br.reactjs.org/docs/getting-started.html">aqui</a>. Ela explana toda a ideologia e vários dos conceitos primordiais do React.js. Além de ser atualizada com frequência conforme novas features são lançadas. Do momento da publicação deste artigo estamos começando a ter material sobre o Concurrent Mode e sobre a API de Suspense.</p>
+<p>Os prerequisitos de um projeto React.js é ter o Node instalado. Com o node tempos o gerenciador de dependencias NPM empacotado junto. Com ele podemos executar e baixar pacotes de outros desenvolvedores e organizações. O React.js nada mais é do que mais um desde pacotes, uma biblioteca melhor dizendo.</p>
+<p>É possível adicionar o React.js a um site já existente, ou iniciar um projeto novo. Optaremos por está segunda opção, mas se tiver interesse na primeira checa <a href="https://pt-br.reactjs.org/docs/add-react-to-a-website.html">aqui</a>.</p>
+<p>Utilizaremos neste exemplo o <a href="https://github.com/facebook/create-react-app">create-react-app</a> que é uma ferramenta para bootstrap de aplicações React.js de forma rápida, existem outras com diversos propósitos como por exemplo o <a href="https://nextjs.org/">Next.js</a> para Server Side Rendering, o <a href="https://www.gatsbyjs.org/">Gatsby.js</a> para que sejam geradas páginas web estáticas.</p>
+<p>Outra coisa que você irá notar é que daqui para frente usarei Javascript mais recente, estarei utilizando features do que chamamos de EcmaScript, mais especificamente, ES6 para frente. Durante alguns anos utilizou-se a notação com apenas um digito, hoje em dia tempos o ES2020 e assim segue anualmente. Mantendo a linguagem sempre atualizada e com novas funcionalidades.</p>
+<p>Para inicializar o repositório local com o código fonte da aplicação rode o seguinte comando no seu terminal de prefência:</p>
+<pre class="hljs"><code><div>$ npx create-react-app [nome-da-aplicação]
+</div></code></pre>
+<p><img src="react1.png" alt="output do comando"></p>
+<p>Com isso já podemos colocar a mão na massa e começarmos a planejar a aplicação.</p>
+<h5 id="o-que-%C3%A9-jsx">O que é JSX?</h5>
+<p>Se você está acostumado com html (se não estiver recomendo dar uma olhadinha sobre antes de prosseguir) você deve entender intuitivamente entender um pouco do que fiz abaixo abaixo:</p>
+<p><strong>BoxedSection.js</strong></p>
+<pre class="hljs"><code><div><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">BoxedSection</span>(<span class="hljs-params">{ children, title }</span>) </span>{
+  <span class="hljs-keyword">return</span> (
+    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"box"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">h5</span>&gt;</span>{ title }<span class="hljs-tag">&lt;/<span class="hljs-name">h5</span>&gt;</span>
+      { children }
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>
+  )
+}
+</div></code></pre>
+<p>Temos uma função que retorna &quot;html&quot;, bom, a terminologia correta é JSX. Ela está retornando uma série de componentes (div, h5) que forma um outro componente (BoxedText). Além disso BoxedText tem alguns parametros (que vamos chamar de props daqui para frente) que são utilizados como dados internos da tag <strong>h5</strong> ou para mostrar outros componentes dentro da caixa (children).</p>
+<p>Este componente por sua vez pode ser utilizado por outros componentes. Por exemplo:</p>
+<pre class="hljs"><code><div><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>
+<span class="hljs-keyword">import</span> BoxedSection <span class="hljs-keyword">from</span> <span class="hljs-string">'./BoxedSection'</span>
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">App</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">return</span> (
+    &lt;React.Fragment&gt;
+      &lt;BoxedSection title={"Seção 1: Info"}&gt;Lorem ipsum&lt;BoxedSection&gt;
+      &lt;BoxedSection title={"Seção 2: Google"}&gt;
+        Este é o logo do Google: 
+        &lt;img src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png" /&gt;
+      &lt;BoxedSection&gt;
+    &lt;/React.Fragment&gt;
+  )
+}
+</div></code></pre>
+<p>Este é um dos principais poderes do React.js, criar códigos desacoplados reutilizaveis de forma simples e rápida.</p>
+<h5 id="controlando-estado">Controlando estado</h5>
+<p>Vamos dizer que temos uma folha de estilo .css na mesma pasta do nosso componente e que queremos fazer um componente de Checkbox simples:</p>
+<pre class="hljs"><code><div><span class="hljs-keyword">import</span> React, { useState } <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>
+<span class="hljs-keyword">import</span> <span class="hljs-string">'styles.css'</span>
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">CheckBox</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-comment">// Criamos um estado inicial, falso, a função useState nos externa num vetor o valor atual desse estado, e uma função para alterar o estado.</span>
+  <span class="hljs-keyword">const</span> [checked, setChecked] = useState(<span class="hljs-literal">false</span>)
+
+  <span class="hljs-comment">// Criamos brevemente uma função que "flippa" o estado de falso pra verdadeiro e vice versa.</span>
+  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">toggle</span>(<span class="hljs-params"></span>) </span>{
+    setChecked(!checked)
+  }
+
+  <span class="hljs-comment">// Retornamos um JSX com um className definido em styles.css que muda de acordo com o estado atual.</span>
+  <span class="hljs-comment">// E que pode ser clicado, executando a função de toggle</span>
+  <span class="hljs-keyword">return</span> (
+    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>
+      <span class="hljs-attr">className</span>=<span class="hljs-string">{checked</span> ? "<span class="hljs-attr">checked-box</span>" <span class="hljs-attr">:</span> "<span class="hljs-attr">unchecked-box</span>"}
+      <span class="hljs-attr">onClick</span>=<span class="hljs-string">{toggle}</span>
+    /&gt;</span></span>
+  )
+}
+</div></code></pre>
+<p>Claro, neste exemplo estamos recriando um componente primitivo já existente no html. Mas é só exemplo. Vamo lá:</p>
+<h4 id="organiza%C3%A7%C3%A3o-pr%C3%A9via">Organização prévia</h4>
+<p>O CLI que acabamos de executar deve ter criado uma estrutura à seguir:</p>
+<p><img src="react2" alt="Estrutura de pastas do projeto React.js"></p>
+<p>Vamos dar uma organizada. Removendo algumas coisas que não precisaremos tais como os arquivos:</p>
+<ul>
+<li>serviceWorker.js já que não estaremos lidando com webworkers neste tutorial.</li>
+<li>logo.svg</li>
+<li>App.js</li>
+<li>App.css</li>
+<li>App.test.js</li>
+</ul>
+<p>Removeremos também do <strong>index.js</strong> as duas linhas a seguir</p>
+<pre class="hljs"><code><div><span class="hljs-keyword">import</span> * <span class="hljs-keyword">as</span> serviceWorker <span class="hljs-keyword">from</span> <span class="hljs-string">'./serviceWorker'</span>;
+serviceWorker.unregister();
+</div></code></pre>
+<p>Criarei uma pasta <strong>app</strong> dentro da <strong>src</strong>. Só para questão de organização, e nela criarei a seguinte estrutura:</p>
+<p><img src="react3.png" alt="Estrutura da pasta src/app do projeto"></p>
+<h5 id="configurando-o-ant-design">Configurando o Ant Design</h5>
+<p>Usaremos o <a href="https://ant.design/docs/react/introduce">Ant Design</a> como Design System da aplicação. Precisaremos também do moment, que é um pré-requisito para uso da bibilioteca. Para tal instala-se o mesmo com o seguinte comando no frontend:</p>
+<pre class="hljs"><code><div>$ npm install antd moment@2.24.0
+</div></code></pre>
+<p>Como estamos trabalhando sem &quot;ejetarmos&quot;, ou seja, num ambiente pré-definido pelo create-react-app, não temos como customizar algumas das ferramentas tais como o transpilador babel ou o webpack. Para tal vamos então irei ejetar do projeto, para termos mais controle sobre tudo, executando o seguinte comando:</p>
+<pre class="hljs"><code><div>$ npm run eject
+</div></code></pre>
+<p>Nota: É que o eject é um dos comandos customs no nosso package.json do frontend. Disponibilizado pelo create-react-app exatamente para uma situação que nem a nossa que queremos customizar algumas funcionalidades e comportamentos no nosso ambiente de desenvolvimento no futuro. Não é possível desfazer essa ação posteriormente.</p>
+<p>Para o front-end precisamos de duas páginas principais:</p>
+<ul>
+<li>A página de <strong>Listagem de Referências</strong></li>
+<li>A página com o formulário para <strong>Cadastro de Referências</strong></li>
+</ul>
+<p>Vamos começar pela Listagem de Referências, mas antes, vamos cadastrar monografia abaixo demonstrada em JSON.</p>
+<pre class="hljs"><code><div>{
+	<span class="hljs-attr">"title"</span>: <span class="hljs-string">"Concepção de Circuitos Integrados"</span>,
+	<span class="hljs-attr">"chapter"</span>: <span class="hljs-string">"Teste e Projeto Visando o Teste de Circuitos e Sistemas Integrados"</span>,
+	<span class="hljs-attr">"authors"</span>: <span class="hljs-string">"LUBASZEWSKI, M.; COTA, E. F.; KRUG, M. R"</span>,
+	<span class="hljs-attr">"edition"</span>: <span class="hljs-string">"2a edição"</span>,
+	<span class="hljs-attr">"year"</span>: <span class="hljs-string">"2002"</span>,
+	<span class="hljs-attr">"pages"</span>: <span class="hljs-string">"167-189"</span>,
+	<span class="hljs-attr">"type"</span>: <span class="hljs-string">"Book"</span>,
+	<span class="hljs-attr">"nature"</span>: <span class="hljs-string">"complete"</span>,
+	<span class="hljs-attr">"reach"</span>: <span class="hljs-string">"international"</span>,
+	<span class="hljs-attr">"status"</span>: <span class="hljs-string">"ongoing"</span>,
+	<span class="hljs-attr">"accessDate"</span>: <span class="hljs-literal">null</span>,
+	<span class="hljs-attr">"publicationPlace"</span>: <span class="hljs-string">"Porto Alegre: Instituto de Informática da UFRGS"</span>,
+	<span class="hljs-attr">"organizer"</span>: <span class="hljs-string">"REIS, R. A. da L. (Ed.)"</span>,
+	<span class="hljs-attr">"publisher"</span>: <span class="hljs-literal">null</span>,
+	<span class="hljs-attr">"availableAt"</span>: <span class="hljs-literal">null</span>
+}
+</div></code></pre>
+<p>Para isso vamos acessar o <a href="localhost:8080">adminer</a>, digitar as credenciais, e entrar na tabela <strong>references</strong></p>
+<p><img src="react4.png" alt="Tela do adminer da tabela de references"></p>
+<p>Selecionar novo registro, e cadastrar as informações. Salvando no final do processo.</p>
+<p><img src="react5.png" alt="Tela de cadastro de nova referencia no adminer"></p>
+<p>Com isso, se obtervemos a resposta da nossa <a href="localhost:3007/references">listagem no backend</a>, obteremos algo como isso daqui:</p>
+<pre class="hljs"><code><div>{
+    <span class="hljs-attr">"status"</span>: <span class="hljs-string">"success"</span>,
+    <span class="hljs-attr">"data"</span>: [
+        {
+            <span class="hljs-attr">"id"</span>: <span class="hljs-number">1</span>,
+            <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Concepção de Circuitos Integrados"</span>,
+            <span class="hljs-attr">"chapter"</span>: <span class="hljs-string">"Teste e Projeto Visando o Teste de Circuitos e Sistemas Integrados"</span>,
+            <span class="hljs-attr">"authors"</span>: <span class="hljs-string">"LUBASZEWSKI, M.; COTA, E. F.; KRUG, M. R"</span>,
+            <span class="hljs-attr">"edition"</span>: <span class="hljs-string">"2a edição"</span>,
+            <span class="hljs-attr">"year"</span>: <span class="hljs-string">"2002"</span>,
+            <span class="hljs-attr">"pages"</span>: <span class="hljs-string">"167-189"</span>,
+            <span class="hljs-attr">"type"</span>: <span class="hljs-string">"Book"</span>,
+            <span class="hljs-attr">"nature"</span>: <span class="hljs-string">"complete"</span>,
+            <span class="hljs-attr">"reach"</span>: <span class="hljs-string">"international"</span>,
+            <span class="hljs-attr">"status"</span>: <span class="hljs-string">"ongoing"</span>,
+            <span class="hljs-attr">"accessDate"</span>: <span class="hljs-literal">null</span>,
+            <span class="hljs-attr">"publicationPlace"</span>: <span class="hljs-string">"Porto Alegre: Instituto de Informática da UFRGS"</span>,
+            <span class="hljs-attr">"organizer"</span>: <span class="hljs-string">"REIS, R. A. da L. (Ed.)"</span>,
+            <span class="hljs-attr">"publisher"</span>: <span class="hljs-literal">null</span>,
+            <span class="hljs-attr">"availableAt"</span>: <span class="hljs-literal">null</span>,
+            <span class="hljs-attr">"createdAt"</span>: <span class="hljs-string">"2020-05-02T23:11:41.000Z"</span>
+        }
+    ]
+}
+</div></code></pre>
+<p>Vou aproveitar que temos uma cadastrada, e vou clona-lo na tela de listagem de dados da tabela do adminer.</p>
+<p><img src="react6.png" alt="tela de listagem com opção de selecionar um item e cloná-lo"></p>
+<p>Depois de muito pensar nos dados, como representa-los para o usuário final. Decidi usar cards e deste cards realizar a edição no próprio. Ou seja, ao invés de duas telas, terei uma só tela que será a principal que o usuário utilizará. Penso utilizar da abordagem mobile first para desenvolvimento da tela, visto que é mais facil depois para adaptar o layout para desktop.</p>
+<h4 id="criando-o-componente-raiz-do-projeto">Criando o componente raiz do projeto</h4>
+<p>Tinhamos anteriormente um arquivo chamado de App.js. Vamos recria-lo do zero, mas na pasta <strong>src/app</strong> dessa vez. Como vamos fazer um single page application não irei me preocupar muito em fazer um header, footer ou navegação. Se necessário posteriormente usarei o react-router-dom para tal.</p>
+<p><strong>src/app/App.js</strong></p>
+<pre class="hljs"><code><div><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>
+<span class="hljs-keyword">import</span> ListPage <span class="hljs-keyword">from</span> <span class="hljs-string">'./pages/ListPage'</span>
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">App</span>(<span class="hljs-params"></span>) </span>{
+	<span class="hljs-keyword">return</span> (
+		<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">ListPage</span> /&gt;</span></span>
+	)
+}
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> App
+</div></code></pre>
+<p>Já no ListPage, terei de realizar uma requisição para obter a lista do backend, para isso usarei o hook useEffect (voce viu um desses hooks anteriormente para lidar com o estado, agora mostrarei o Hook useEffect para lidar com side effects como buscas do backend ou mudanças de estado que engatilham outras ações). Recomendo ver mais sobre hooks <a href="https://pt-br.reactjs.org/docs/hooks-intro.html">aqui</a>.</p>
+<p>Por enquanto vamos mostrar o retorno da rota na forma de JSON bruto mesmo.</p>
+<p><strong>src/app/pages/ListPage.js</strong></p>
+<pre class="hljs"><code><div><span class="hljs-keyword">import</span> React, { useEffect, useState } <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>
+<span class="hljs-keyword">import</span> { API_BASE_URL } <span class="hljs-keyword">from</span> <span class="hljs-string">'../config'</span>
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">ListPage</span>(<span class="hljs-params"></span>) </span>{
+	<span class="hljs-comment">// Inicializando um estado com lista vazia</span>
+	<span class="hljs-keyword">const</span> [references, setReferences] = useState([])
+
+	useEffect(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+		<span class="hljs-keyword">const</span> execute = <span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+			<span class="hljs-comment">// Estamos usando a Syntax do Async Await, você pode ver mais sobre ela aqui: https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Statements/funcoes_assincronas</span>
+			<span class="hljs-keyword">const</span> response = <span class="hljs-keyword">await</span> fetch(<span class="hljs-string">'http://localhost:3007/references'</span>, {
+				<span class="hljs-attr">headers</span>: {
+					<span class="hljs-string">'Content-Type'</span>: <span class="hljs-string">'application/json'</span>
+				}
+			})
+
+			<span class="hljs-comment">// transformo o retorno da api em JSON</span>
+			<span class="hljs-keyword">const</span> responseJson = <span class="hljs-keyword">await</span> response.json()
+			<span class="hljs-comment">// pego o dado especifico que desejo</span>
+      <span class="hljs-keyword">const</span> references = responseJson.data
+      <span class="hljs-built_in">console</span>.log(references) <span class="hljs-comment">// para vermos no console do navegador também</span>
+
+			<span class="hljs-comment">// salvo no estado do componente (página) as referencias</span>
+			setReferences(references)
+		}
+
+		execute()
+	}, [])
+
+	<span class="hljs-keyword">return</span> (
+		<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+			{ JSON.stringify(references, null, 4) }
+		<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>
+	)
+}
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> ListPage
+</div></code></pre>
+<p>Esse componente sendo desenhado é equivalente a isso daqui:</p>
+<p><img src="react7.png" alt="navegador com página a página sendo criada aberta, mostrando em texto as referências e no console as referencias também"></p>
+<h4 id="criando-componente">Criando componente</h4>
+<p>Criaremos o componente de ReferenceCard na pasta components do projeto. Também nessa pasta, como nas demais, exportaremos os arquivos usando um arquivo <strong>index.js</strong> na raiz da pasta. Podendo com isso importar da seguinte forma na nossa tela esses arquivos:</p>
+<pre class="hljs"><code><div><span class="hljs-keyword">import</span> { ReferenceCard, Componente2, Componente3, ...OutrosComponentes } <span class="hljs-keyword">from</span> <span class="hljs-string">'../components'</span>
+</div></code></pre>
+<h5 id="referencecard-component">ReferenceCard Component</h5>
+<p>Vamos atualizar primeiramente o JSX retornado pelo componente de página <em>ListPage</em>, e deixar pronta um callback (função que será chamada posteriormente pelo componente filho) para alterar a referencia no estado do componente.</p>
+<p><strong>src/app/pages/ListPage.js</strong></p>
+<pre class="hljs"><code><div><span class="hljs-keyword">import</span> React, { useEffect, useState } <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>
+<span class="hljs-keyword">import</span> { ReferenceCard } <span class="hljs-keyword">from</span> <span class="hljs-string">'../components'</span>
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">ListPage</span>(<span class="hljs-params"></span>) </span>{
+	<span class="hljs-comment">// Inicializando um estado com lista vazia</span>
+	<span class="hljs-keyword">const</span> [references, setReferences] = useState([])
+
+	useEffect(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+		<span class="hljs-keyword">const</span> execute = <span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+			<span class="hljs-comment">// Estamos usando a Syntax do Async Await, você pode ver mais sobre ela aqui: https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Statements/funcoes_assincronas</span>
+			<span class="hljs-keyword">const</span> response = <span class="hljs-keyword">await</span> fetch(<span class="hljs-string">'http://localhost:3007/references'</span>, {
+				<span class="hljs-attr">headers</span>: {
+					<span class="hljs-string">'Content-Type'</span>: <span class="hljs-string">'application/json'</span>
+				}
+			})
+
+			<span class="hljs-comment">// transformo o retorno da api em JSON</span>
+			<span class="hljs-keyword">const</span> responseJson = <span class="hljs-keyword">await</span> response.json()
+			<span class="hljs-comment">// pego o dado especifico que desejo</span>
+			<span class="hljs-keyword">const</span> references = responseJson.data
+
+			<span class="hljs-comment">// salvo no estado do componente (página) as referencias</span>
+			setReferences(references)
+		}
+
+		execute()
+	}, [])
+	
+	<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">onUpdate</span>(<span class="hljs-params">reference</span>) </span>{
+		<span class="hljs-keyword">let</span> copy = [...references]
+		<span class="hljs-keyword">const</span> index = copy.findIndex(<span class="hljs-function"><span class="hljs-params">ref</span> =&gt;</span> ref.id === reference.id)
+
+		copy[index] = reference
+
+		setReferences(copy)
+	}
+
+	<span class="hljs-keyword">return</span> (
+    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{{</span> <span class="hljs-attr">display:</span> '<span class="hljs-attr">flex</span>', <span class="hljs-attr">flexDirection:</span> '<span class="hljs-attr">row</span>', <span class="hljs-attr">flexWrap:</span> '<span class="hljs-attr">wrap</span>' }} &gt;</span>
+      {*}
+			{references.map((item) =&gt; {
+        // Todo item de uma lista de components precisa explicitamente de uma key ÚNICA
+				// É importante que essa key seja unica para determinado dado, visto que é utilizada
+				// para fins de controle de estado e renderização do React.js
+				return <span class="hljs-tag">&lt;<span class="hljs-name">ReferenceCard</span> <span class="hljs-attr">key</span>=<span class="hljs-string">{item.id}</span> {<span class="hljs-attr">...item</span>} <span class="hljs-attr">onUpdate</span>=<span class="hljs-string">{onUpdate}</span> /&gt;</span>
+			})}
+		<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>
+	)
+}
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> ListPage
+</div></code></pre>
+<p>Agora temos um componente mais complicado, devido a questões de tempo de desenvolvimento.</p>
+<p><strong>src/app/components/ReferenceCard.js</strong></p>
+<pre class="hljs"><code><div><span class="hljs-keyword">import</span> React, { useState, useImperativeHandle, forwardRef, useCallback } <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
+<span class="hljs-keyword">import</span> { Card, Input, Select, Form, Descriptions } <span class="hljs-keyword">from</span> <span class="hljs-string">'antd'</span>
+<span class="hljs-keyword">import</span> Button <span class="hljs-keyword">from</span> <span class="hljs-string">'./Button'</span>
+<span class="hljs-keyword">import</span> <span class="hljs-string">'antd/dist/antd.css'</span>;
+
+<span class="hljs-keyword">import</span> { generateReference } <span class="hljs-keyword">from</span> <span class="hljs-string">'../utils'</span>
+
+<span class="hljs-keyword">const</span> typeOptions = [<span class="hljs-string">'Periodic'</span>, <span class="hljs-string">'Proceedings'</span>, <span class="hljs-string">'Book'</span>, <span class="hljs-string">'Excerpt'</span>, <span class="hljs-string">'Eletronic'</span>]
+<span class="hljs-keyword">const</span> natureOptions = [<span class="hljs-string">'complete'</span>, <span class="hljs-string">'summarized'</span>, <span class="hljs-string">'simple'</span>, <span class="hljs-string">'expanded'</span>]
+<span class="hljs-keyword">const</span> reachOptions = [<span class="hljs-string">'national'</span>, <span class="hljs-string">'international'</span>]
+<span class="hljs-keyword">const</span> statusOptions = [<span class="hljs-string">'accepted'</span>, <span class="hljs-string">'rejected'</span>, <span class="hljs-string">'ongoing'</span>]
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">mapOptions</span>(<span class="hljs-params">options</span>) </span>{
+	<span class="hljs-keyword">return</span> options.map(<span class="hljs-function"><span class="hljs-params">option</span> =&gt;</span> ({ <span class="hljs-attr">label</span>: option, <span class="hljs-attr">value</span>: option }))
+}
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">ReferenceCard</span>(<span class="hljs-params">props, ref</span>) </span>{
+	<span class="hljs-keyword">const</span> {
+		<span class="hljs-comment">// Triggers</span>
+		onStartEditing,
+		onEndEditing,
+		onUpdate,
+		<span class="hljs-comment">// Data</span>
+		...data
+	} = props
+
+	<span class="hljs-keyword">const</span> [editMode, setEditMode] = useState(<span class="hljs-literal">false</span>)
+	<span class="hljs-keyword">const</span> [updatedValues, setUpdatedValues] = useState({})
+
+	<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">onChange</span>(<span class="hljs-params">name</span>) </span>{
+		<span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">value</span>) </span>{
+			setUpdatedValues({
+				...updatedValues,
+				[name]: value.target ? value.target.value : value
+			})
+		}
+	}
+
+	<span class="hljs-keyword">const</span> toggleEdit = useCallback(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">target</span>) </span>{
+		<span class="hljs-keyword">const</span> value = (target === <span class="hljs-literal">true</span> || target === <span class="hljs-literal">false</span>) ? target : !editMode
+
+		<span class="hljs-keyword">if</span>(editMode === value) <span class="hljs-keyword">return</span>
+
+		<span class="hljs-keyword">if</span> (value &amp;&amp; onStartEditing) onStartEditing()
+		<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (!value &amp;&amp; onEndEditing) onEndEditing()
+		
+		setEditMode(value)
+		setUpdatedValues({ })
+	}, [editMode, onEndEditing, onStartEditing])
+
+	<span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">onSubmit</span>(<span class="hljs-params"></span>) </span>{
+		<span class="hljs-keyword">const</span> reference = {
+			...data,
+			...updatedValues
+		}
+
+		<span class="hljs-keyword">const</span> response = <span class="hljs-keyword">await</span> fetch(<span class="hljs-string">`http://localhost:3007/references`</span>, {
+			<span class="hljs-attr">method</span>: <span class="hljs-string">'PUT'</span>,
+			<span class="hljs-attr">body</span>: <span class="hljs-built_in">JSON</span>.stringify(reference),
+			<span class="hljs-attr">headers</span>: {
+				<span class="hljs-string">'Content-Type'</span>: <span class="hljs-string">'application/json'</span>
+			}
+		})
+
+		<span class="hljs-keyword">if</span>(response.status === <span class="hljs-number">200</span>) {
+			toggleEdit(<span class="hljs-literal">false</span>)
+			<span class="hljs-keyword">if</span>(onUpdate) onUpdate(reference)
+		} <span class="hljs-keyword">else</span> {
+			alert(<span class="hljs-string">'Erro ao atualizar referência: '</span> + (<span class="hljs-keyword">await</span> response.json()).message)
+		}
+	}
+ 
+	<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">renderExtra</span>(<span class="hljs-params"></span>) </span>{
+		<span class="hljs-keyword">return</span> <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">Button</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">{toggleEdit}</span>&gt;</span>{editMode ? 'Limpar' : 'Editar'}<span class="hljs-tag">&lt;/<span class="hljs-name">Button</span>&gt;</span></span>
+	}
+
+	<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getValue</span>(<span class="hljs-params">name</span>) </span>{
+		<span class="hljs-keyword">return</span> (updatedValues[name] !== <span class="hljs-literal">undefined</span>) ? updatedValues[name] : data[name]
+	}
+
+	useImperativeHandle(ref, () =&gt; ({
+		toggleEdit
+	}), [toggleEdit])
+
+	<span class="hljs-keyword">return</span> (
+		<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">React.Fragment</span>&gt;</span>
+			<span class="hljs-tag">&lt;<span class="hljs-name">Form</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{{</span> <span class="hljs-attr">display:</span> '<span class="hljs-attr">flex</span>', <span class="hljs-attr">margin:</span> <span class="hljs-attr">7</span> }}&gt;</span>
+				<span class="hljs-tag">&lt;<span class="hljs-name">Card</span> <span class="hljs-attr">name</span>=<span class="hljs-string">{data.id}</span> <span class="hljs-attr">title</span>=<span class="hljs-string">{data.title}</span> <span class="hljs-attr">extra</span>=<span class="hljs-string">{renderExtra()}</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{{</span> <span class="hljs-attr">width:</span> <span class="hljs-attr">375</span> }} &gt;</span>
+					<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{{</span> <span class="hljs-attr">marginBottom:</span> <span class="hljs-attr">12</span> }}&gt;</span>
+						{ generateReference({ 
+							...data,
+							...updatedValues,
+						})}
+					<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+					{ editMode ? (
+						<span class="hljs-tag">&lt;<span class="hljs-name">React.Fragment</span>&gt;</span>
+							<span class="hljs-tag">&lt;<span class="hljs-name">Input</span> <span class="hljs-attr">name</span>=<span class="hljs-string">{</span>"<span class="hljs-attr">title</span>"} <span class="hljs-attr">title</span>=<span class="hljs-string">{</span>"<span class="hljs-attr">title</span>"} <span class="hljs-attr">placeholder</span>=<span class="hljs-string">{</span>"<span class="hljs-attr">title</span>"} <span class="hljs-attr">onChange</span>=<span class="hljs-string">{onChange(</span>'<span class="hljs-attr">title</span>')} <span class="hljs-attr">value</span>=<span class="hljs-string">{getValue(</span>'<span class="hljs-attr">title</span>')} /&gt;</span>
+							<span class="hljs-tag">&lt;<span class="hljs-name">Input</span> <span class="hljs-attr">name</span>=<span class="hljs-string">{</span>"<span class="hljs-attr">chapter</span>"} <span class="hljs-attr">title</span>=<span class="hljs-string">{</span>"<span class="hljs-attr">chapter</span>"} <span class="hljs-attr">placeholder</span>=<span class="hljs-string">{</span>"<span class="hljs-attr">chapter</span>"} <span class="hljs-attr">onChange</span>=<span class="hljs-string">{onChange(</span>'<span class="hljs-attr">chapter</span>')} <span class="hljs-attr">value</span>=<span class="hljs-string">{getValue(</span>'<span class="hljs-attr">chapter</span>')} /&gt;</span>
+							<span class="hljs-tag">&lt;<span class="hljs-name">Input</span> <span class="hljs-attr">name</span>=<span class="hljs-string">{</span>"<span class="hljs-attr">authors</span>"} <span class="hljs-attr">title</span>=<span class="hljs-string">{</span>"<span class="hljs-attr">authors</span>"} <span class="hljs-attr">placeholder</span>=<span class="hljs-string">{</span>"<span class="hljs-attr">authors</span>"} <span class="hljs-attr">onChange</span>=<span class="hljs-string">{onChange(</span>'<span class="hljs-attr">authors</span>')} <span class="hljs-attr">value</span>=<span class="hljs-string">{getValue(</span>'<span class="hljs-attr">authors</span>')} /&gt;</span>
+							<span class="hljs-tag">&lt;<span class="hljs-name">Input</span> <span class="hljs-attr">name</span>=<span class="hljs-string">{</span>"<span class="hljs-attr">edition</span>"} <span class="hljs-attr">title</span>=<span class="hljs-string">{</span>"<span class="hljs-attr">edition</span>"} <span class="hljs-attr">placeholder</span>=<span class="hljs-string">{</span>"<span class="hljs-attr">edition</span>"} <span class="hljs-attr">onChange</span>=<span class="hljs-string">{onChange(</span>'<span class="hljs-attr">edition</span>')} <span class="hljs-attr">value</span>=<span class="hljs-string">{getValue(</span>'<span class="hljs-attr">edition</span>')} /&gt;</span>
+							<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{{</span> <span class="hljs-attr">display:</span> '<span class="hljs-attr">flex</span>', <span class="hljs-attr">flexDirection:</span> '<span class="hljs-attr">row</span>' }}&gt;</span>
+								<span class="hljs-tag">&lt;<span class="hljs-name">Input</span> <span class="hljs-attr">picker</span>=<span class="hljs-string">"year"</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{{</span> <span class="hljs-attr">minWidth:</span> '<span class="hljs-attr">40</span>%' }} <span class="hljs-attr">onChange</span>=<span class="hljs-string">{onChange(</span>'<span class="hljs-attr">year</span>')} <span class="hljs-attr">value</span>=<span class="hljs-string">{getValue(</span>'<span class="hljs-attr">year</span>')} /&gt;</span>
+								<span class="hljs-tag">&lt;<span class="hljs-name">Input</span> <span class="hljs-attr">name</span>=<span class="hljs-string">{</span>"<span class="hljs-attr">pages</span>"} <span class="hljs-attr">title</span>=<span class="hljs-string">{</span>"<span class="hljs-attr">pages</span>"} <span class="hljs-attr">placeholder</span>=<span class="hljs-string">{</span>"<span class="hljs-attr">pages</span>"} <span class="hljs-attr">onChange</span>=<span class="hljs-string">{onChange(</span>'<span class="hljs-attr">pages</span>')} <span class="hljs-attr">value</span>=<span class="hljs-string">{getValue(</span>'<span class="hljs-attr">pages</span>')} /&gt;</span>
+							<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+							<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{{</span> <span class="hljs-attr">display:</span> '<span class="hljs-attr">flex</span>', <span class="hljs-attr">flexDirection:</span> '<span class="hljs-attr">column</span>' }}&gt;</span>
+								<span class="hljs-tag">&lt;<span class="hljs-name">Select</span> 
+									<span class="hljs-attr">options</span>=<span class="hljs-string">{mapOptions(typeOptions)}</span> 
+									<span class="hljs-attr">name</span>=<span class="hljs-string">{</span>"<span class="hljs-attr">type</span>"} 
+									<span class="hljs-attr">title</span>=<span class="hljs-string">{</span>"<span class="hljs-attr">type</span>"} 
+									<span class="hljs-attr">placeholder</span>=<span class="hljs-string">{</span>"<span class="hljs-attr">type</span>"} 
+									<span class="hljs-attr">onChange</span>=<span class="hljs-string">{onChange(</span>'<span class="hljs-attr">type</span>')} 
+									<span class="hljs-attr">value</span>=<span class="hljs-string">{getValue(</span>'<span class="hljs-attr">type</span>')} 
+								/&gt;</span>
+								<span class="hljs-tag">&lt;<span class="hljs-name">Select</span>
+									<span class="hljs-attr">options</span>=<span class="hljs-string">{mapOptions(natureOptions)}</span> 
+									<span class="hljs-attr">name</span>=<span class="hljs-string">{</span>"<span class="hljs-attr">nature</span>"}
+									<span class="hljs-attr">title</span>=<span class="hljs-string">{</span>"<span class="hljs-attr">nature</span>"}
+									<span class="hljs-attr">placeholder</span>=<span class="hljs-string">{</span>"<span class="hljs-attr">nature</span>"}
+									<span class="hljs-attr">onChange</span>=<span class="hljs-string">{onChange(</span>'<span class="hljs-attr">nature</span>')}
+									<span class="hljs-attr">value</span>=<span class="hljs-string">{getValue(</span>'<span class="hljs-attr">nature</span>')} 
+								/&gt;</span>
+								<span class="hljs-tag">&lt;<span class="hljs-name">Select</span> 
+									<span class="hljs-attr">options</span>=<span class="hljs-string">{mapOptions(reachOptions)}</span> 
+									<span class="hljs-attr">name</span>=<span class="hljs-string">{</span>"<span class="hljs-attr">reach</span>"} 
+									<span class="hljs-attr">title</span>=<span class="hljs-string">{</span>"<span class="hljs-attr">reach</span>"} 
+									<span class="hljs-attr">placeholder</span>=<span class="hljs-string">{</span>"<span class="hljs-attr">reach</span>"} 
+									<span class="hljs-attr">onChange</span>=<span class="hljs-string">{onChange(</span>'<span class="hljs-attr">reach</span>')} 
+									<span class="hljs-attr">value</span>=<span class="hljs-string">{getValue(</span>'<span class="hljs-attr">reach</span>')} 
+								/&gt;</span>
+								<span class="hljs-tag">&lt;<span class="hljs-name">Select</span> 
+									<span class="hljs-attr">options</span>=<span class="hljs-string">{mapOptions(statusOptions)}</span>
+									<span class="hljs-attr">name</span>=<span class="hljs-string">{</span>"<span class="hljs-attr">status</span>"} 
+									<span class="hljs-attr">title</span>=<span class="hljs-string">{</span>"<span class="hljs-attr">status</span>"} 
+									<span class="hljs-attr">placeholder</span>=<span class="hljs-string">{</span>"<span class="hljs-attr">status</span>"} 
+									<span class="hljs-attr">onChange</span>=<span class="hljs-string">{onChange(</span>'<span class="hljs-attr">status</span>')} 
+									<span class="hljs-attr">value</span>=<span class="hljs-string">{getValue(</span>'<span class="hljs-attr">status</span>')} 
+								/&gt;</span>
+							<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+							<span class="hljs-tag">&lt;<span class="hljs-name">Input</span> <span class="hljs-attr">name</span>=<span class="hljs-string">{</span>"<span class="hljs-attr">accessDate</span>"} <span class="hljs-attr">title</span>=<span class="hljs-string">{</span>"<span class="hljs-attr">accessDate</span>"} <span class="hljs-attr">placeholder</span>=<span class="hljs-string">{</span>"<span class="hljs-attr">accessDate</span>"} <span class="hljs-attr">onChange</span>=<span class="hljs-string">{onChange(</span>'<span class="hljs-attr">accessDate</span>')} <span class="hljs-attr">value</span>=<span class="hljs-string">{getValue(</span>'<span class="hljs-attr">accessDate</span>')} /&gt;</span>
+							<span class="hljs-tag">&lt;<span class="hljs-name">Input</span> <span class="hljs-attr">name</span>=<span class="hljs-string">{</span>"<span class="hljs-attr">publicationPlace</span>"} <span class="hljs-attr">title</span>=<span class="hljs-string">{</span>"<span class="hljs-attr">publicationPlace</span>"} <span class="hljs-attr">placeholder</span>=<span class="hljs-string">{</span>"<span class="hljs-attr">publicationPlace</span>"} <span class="hljs-attr">onChange</span>=<span class="hljs-string">{onChange(</span>'<span class="hljs-attr">publicationPlace</span>')} <span class="hljs-attr">value</span>=<span class="hljs-string">{getValue(</span>'<span class="hljs-attr">publicationPlace</span>')} /&gt;</span>
+							<span class="hljs-tag">&lt;<span class="hljs-name">Input</span> <span class="hljs-attr">name</span>=<span class="hljs-string">{</span>"<span class="hljs-attr">organizer</span>"} <span class="hljs-attr">title</span>=<span class="hljs-string">{</span>"<span class="hljs-attr">organizer</span>"} <span class="hljs-attr">placeholder</span>=<span class="hljs-string">{</span>"<span class="hljs-attr">organizer</span>"} <span class="hljs-attr">onChange</span>=<span class="hljs-string">{onChange(</span>'<span class="hljs-attr">organizer</span>')} <span class="hljs-attr">value</span>=<span class="hljs-string">{getValue(</span>'<span class="hljs-attr">organizer</span>')} /&gt;</span>
+							<span class="hljs-tag">&lt;<span class="hljs-name">Input</span> <span class="hljs-attr">name</span>=<span class="hljs-string">{</span>"<span class="hljs-attr">publisher</span>"} <span class="hljs-attr">title</span>=<span class="hljs-string">{</span>"<span class="hljs-attr">publisher</span>"} <span class="hljs-attr">placeholder</span>=<span class="hljs-string">{</span>"<span class="hljs-attr">publisher</span>"} <span class="hljs-attr">onChange</span>=<span class="hljs-string">{onChange(</span>'<span class="hljs-attr">publisher</span>')} <span class="hljs-attr">value</span>=<span class="hljs-string">{getValue(</span>'<span class="hljs-attr">publisher</span>')} /&gt;</span>
+							<span class="hljs-tag">&lt;<span class="hljs-name">Input</span> <span class="hljs-attr">name</span>=<span class="hljs-string">{</span>"<span class="hljs-attr">availableAt</span>"} <span class="hljs-attr">title</span>=<span class="hljs-string">{</span>"<span class="hljs-attr">availableAt</span>"} <span class="hljs-attr">placeholder</span>=<span class="hljs-string">{</span>"<span class="hljs-attr">availableAt</span>"} <span class="hljs-attr">onChange</span>=<span class="hljs-string">{onChange(</span>'<span class="hljs-attr">availableAt</span>')} <span class="hljs-attr">value</span>=<span class="hljs-string">{getValue(</span>'<span class="hljs-attr">availableAt</span>')} /&gt;</span>
+							<span class="hljs-tag">&lt;<span class="hljs-name">Input</span> <span class="hljs-attr">name</span>=<span class="hljs-string">{</span>"<span class="hljs-attr">createdAt</span>"} <span class="hljs-attr">title</span>=<span class="hljs-string">{</span>"<span class="hljs-attr">createdAt</span>"} <span class="hljs-attr">placeholder</span>=<span class="hljs-string">{</span>"<span class="hljs-attr">createdAt</span>"} <span class="hljs-attr">onChange</span>=<span class="hljs-string">{onChange(</span>'<span class="hljs-attr">createdAt</span>')} <span class="hljs-attr">value</span>=<span class="hljs-string">{getValue(</span>'<span class="hljs-attr">createdAt</span>')} /&gt;</span>
+							<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{{</span> <span class="hljs-attr">display:</span> '<span class="hljs-attr">flex</span>', <span class="hljs-attr">flexDirection:</span> '<span class="hljs-attr">row</span>', <span class="hljs-attr">justifyContent:</span> '<span class="hljs-attr">flex-end</span>', <span class="hljs-attr">marginTop:</span> <span class="hljs-attr">12</span>  }}&gt;</span>
+								<span class="hljs-tag">&lt;<span class="hljs-name">Button</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">{onSubmit}</span>&gt;</span>{'Salvar'}<span class="hljs-tag">&lt;/<span class="hljs-name">Button</span>&gt;</span>
+							<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+						<span class="hljs-tag">&lt;/<span class="hljs-name">React.Fragment</span>&gt;</span>
+					) : (
+						<span class="hljs-tag">&lt;<span class="hljs-name">React.Fragment</span>&gt;</span>
+							<span class="hljs-tag">&lt;<span class="hljs-name">Descriptions</span>&gt;</span>
+								<span class="hljs-tag">&lt;<span class="hljs-name">Descriptions.Item</span> <span class="hljs-attr">label</span>=<span class="hljs-string">"Year"</span>&gt;</span>{ data.year }<span class="hljs-tag">&lt;/<span class="hljs-name">Descriptions.Item</span>&gt;</span>
+								<span class="hljs-tag">&lt;<span class="hljs-name">Descriptions.Item</span> <span class="hljs-attr">label</span>=<span class="hljs-string">"Type"</span>&gt;</span>{ data.type }<span class="hljs-tag">&lt;/<span class="hljs-name">Descriptions.Item</span>&gt;</span>
+							<span class="hljs-tag">&lt;/<span class="hljs-name">Descriptions</span>&gt;</span>
+							<span class="hljs-tag">&lt;<span class="hljs-name">Descriptions</span>&gt;</span>
+								<span class="hljs-tag">&lt;<span class="hljs-name">Descriptions.Item</span> <span class="hljs-attr">label</span>=<span class="hljs-string">"Nature"</span>&gt;</span>{ data.nature }<span class="hljs-tag">&lt;/<span class="hljs-name">Descriptions.Item</span>&gt;</span>
+								<span class="hljs-tag">&lt;<span class="hljs-name">Descriptions.Item</span> <span class="hljs-attr">label</span>=<span class="hljs-string">"Status"</span>&gt;</span>{ data.status }<span class="hljs-tag">&lt;/<span class="hljs-name">Descriptions.Item</span>&gt;</span>
+							<span class="hljs-tag">&lt;/<span class="hljs-name">Descriptions</span>&gt;</span>
+						<span class="hljs-tag">&lt;/<span class="hljs-name">React.Fragment</span>&gt;</span>
+						)}
+				<span class="hljs-tag">&lt;/<span class="hljs-name">Card</span>&gt;</span>
+			<span class="hljs-tag">&lt;/<span class="hljs-name">Form</span>&gt;</span>
+		<span class="hljs-tag">&lt;/<span class="hljs-name">React.Fragment</span>&gt;</span></span>
+	)
+}
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> forwardRef(ReferenceCard);
+</div></code></pre>
+<p>Esse componente tem dois estados principais controlados pelo modo de edição (variável editMode).</p>
+<ul>
+<li>
+<p>Se editMode for verdadeiro mostra um formulário dentro do card. Conforme abaixo:
+<img src="react8.png" alt="Card com referencia completa no topo, ano, tipo, natureza, status atual e botão para editar"></p>
+</li>
+<li>
+<p>Se editMode for falso, mostra os dados resumidos do card Conforme abaixo:
+<img src="react9.png" alt="Card com referencia completa no topo, formulário com todos os campos possiveis e botão de limpar no topo e no fundo botão de salvar"></p>
+</li>
+</ul>
+<p>Este componente utiliza de components da biblioteca do ant design e se utiliza de uma função chamamada de generateReference que se encontra na pasta de utilitários.</p>
+<p><strong>src/app/components/utils/generateReference.js</strong></p>
+<pre class="hljs"><code><div><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getValue</span>(<span class="hljs-params">data, key</span>) </span>{
+	<span class="hljs-keyword">if</span>(key === <span class="hljs-string">'authors'</span> &amp;&amp; data.authors.split(<span class="hljs-string">';'</span>).length &gt; <span class="hljs-number">3</span>) {
+		<span class="hljs-keyword">return</span> data.authors.split(<span class="hljs-string">';'</span>)[<span class="hljs-number">0</span>] + <span class="hljs-string">' et al'</span>
+	} <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(key === <span class="hljs-string">'edition'</span>) {
+		<span class="hljs-keyword">if</span>([<span class="hljs-string">'Periodic'</span>, <span class="hljs-string">'Eletronic'</span>].includes(data.type)) <span class="hljs-keyword">return</span> data.edition
+
+		<span class="hljs-keyword">const</span> number = <span class="hljs-built_in">parseInt</span>(data.edition)
+
+		<span class="hljs-keyword">if</span>(data.reach.toLowerCase() === <span class="hljs-string">'international'</span>) {
+			<span class="hljs-keyword">if</span>(number === <span class="hljs-number">1</span>) {
+				<span class="hljs-keyword">return</span> <span class="hljs-string">`1st ed`</span>
+			} <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(number === <span class="hljs-number">2</span>) {
+				<span class="hljs-keyword">return</span> <span class="hljs-string">`2nd ed`</span>
+			} <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(number === <span class="hljs-number">3</span>) {
+				<span class="hljs-keyword">return</span> <span class="hljs-string">`3rd ed`</span>
+			} <span class="hljs-keyword">else</span> {
+				<span class="hljs-keyword">return</span> <span class="hljs-string">`<span class="hljs-subst">${number}</span>th ed`</span>
+			}
+		} <span class="hljs-keyword">else</span> {
+			<span class="hljs-keyword">return</span> <span class="hljs-string">`<span class="hljs-subst">${number}</span>ª ed`</span>
+		}
+	} <span class="hljs-keyword">else</span> {
+		<span class="hljs-keyword">return</span> data[key]
+	}
+}
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">fromTemplate</span>(<span class="hljs-params">template, data</span>) </span>{
+	<span class="hljs-keyword">let</span> copy = template + <span class="hljs-string">''</span>
+	<span class="hljs-keyword">for</span>(<span class="hljs-keyword">let</span> key <span class="hljs-keyword">of</span> <span class="hljs-built_in">Object</span>.keys(data)) {
+		<span class="hljs-keyword">let</span> value = getValue(data, key)
+		<span class="hljs-keyword">if</span>(value) {
+			copy = copy.replace(<span class="hljs-string">`{<span class="hljs-subst">${key}</span>}`</span>, value)
+		}
+	}
+	<span class="hljs-keyword">return</span> copy
+}
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">publicationPlaceAndPublisher</span>(<span class="hljs-params">publicationPlace, publisher</span>) </span>{
+	<span class="hljs-keyword">if</span>(!publicationPlace &amp;&amp; publisher) <span class="hljs-keyword">return</span> <span class="hljs-string">'[S.l.]: {publisher}'</span>
+	<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(publicationPlace &amp;&amp; !publisher) <span class="hljs-keyword">return</span> <span class="hljs-string">'{publicationPlace}: [s.n]'</span>
+	<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(!publicationPlace &amp;&amp; !publisher) <span class="hljs-keyword">return</span> <span class="hljs-string">'[S.l.:s.n]'</span>
+	<span class="hljs-keyword">else</span> <span class="hljs-keyword">return</span> <span class="hljs-string">'{publicationPlace}, {publisher}'</span>
+}
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">data</span>) </span>{
+	<span class="hljs-keyword">switch</span>(data.type) {
+		<span class="hljs-keyword">case</span> <span class="hljs-string">'Periodic'</span>: 
+			<span class="hljs-keyword">return</span> fromTemplate(<span class="hljs-string">`<span class="hljs-subst">${data.authors ? <span class="hljs-string">'{authors}. '</span> : <span class="hljs-string">''</span>}</span>{title}. {publisher}, {publishedAt}, {edition}, p. {pages}, {year}.`</span>, data)
+		<span class="hljs-keyword">case</span> <span class="hljs-string">'Book'</span>: 
+			<span class="hljs-keyword">return</span> fromTemplate(<span class="hljs-string">`<span class="hljs-subst">${data.authors ? <span class="hljs-string">'{authors}. '</span> : <span class="hljs-string">''</span>}</span>{title}. {edition}. <span class="hljs-subst">${publicationPlaceAndPublisher(data.publicationPlace, data.publisher)}</span>, {year}.`</span>, data)
+		<span class="hljs-keyword">case</span> <span class="hljs-string">'Proceedings'</span>: 
+		<span class="hljs-keyword">case</span> <span class="hljs-string">'Excerpt'</span>: 
+			<span class="hljs-keyword">return</span> fromTemplate(<span class="hljs-string">`<span class="hljs-subst">${data.authors ? <span class="hljs-string">'{authors}. '</span> : <span class="hljs-string">''</span>}</span>{chapter}. In: {organizer}. {title}. {edition}. <span class="hljs-subst">${publicationPlaceAndPublisher(data.publicationPlace, data.publisher)}</span>, {year}.`</span>, data)
+		<span class="hljs-keyword">case</span> <span class="hljs-string">'Eletronic'</span>:
+			<span class="hljs-keyword">return</span> fromTemplate(<span class="hljs-string">`{authors}. {title}. {publishedAt}, {edition}, {pages}, {year}. <span class="hljs-subst">${data.reach === <span class="hljs-string">'national'</span> ? <span class="hljs-string">'Disponível em'</span> : <span class="hljs-string">'Available at'</span>}</span>: &lt;{availableAt}&gt;. <span class="hljs-subst">${data.reach === <span class="hljs-string">'national'</span> ? <span class="hljs-string">'Acessado em'</span> : <span class="hljs-string">'Last access'</span>}</span>: {accessDate}.`</span>, data)
+		<span class="hljs-attr">default</span>:
+			<span class="hljs-keyword">return</span> <span class="hljs-string">'Invalid format'</span> 
+	}
+}
+</div></code></pre>
+<p>Temos uma função principal que define com base nos tipos, templates que serão utilizadas. As demais funções são auxiliares a essa para montar a referência com o formato e dados corretos.</p>
+<h3 id="notas-para-desenvolvimento-futuro">Notas para desenvolvimento futuro</h3>
+<ul>
+<li>Tornar mais profissional tudo contido neste repositório. Foi feito em um dia, com bastante calma e paciência, mas não é o perfeito para ensinar alguém do zero.</li>
+<li>Melhorar principalmente o frontend. Ele foi feito por último e com menos tempo.</li>
+</ul>
+
+</body>
+</html>
