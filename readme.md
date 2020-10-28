@@ -1,4 +1,4 @@
-# Tutorial do projeto de Aplicação de Gestão de Conteúdo
+# Gerenciador de Referê ncias Bibliográficas
 
 Autor: Leonardo Marcelino Vieira
 
