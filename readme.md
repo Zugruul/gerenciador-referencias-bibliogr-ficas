@@ -1,4 +1,4 @@
-# Gerenciador de Referê ncias Bibliográficas
+# Gerenciador de Referências Bibliográficas
 
 Autor: Leonardo Marcelino Vieira
 
@@ -6,7 +6,7 @@ Repositório GIT: https://github.com/Zugruul/gerenciador-referencias-bibliogr-fi
 
 ## Enunciado
 
-Você pode ver o enunciado deste trabalho [aqui](enunciado.md).
+Você pode ver o enunciado deste trabalho [ESI9](enunciado_esi9.md) e [ESI13](enunciado_esi13.md).
 
 ## Sobre as Tecnologias
 
@@ -21,7 +21,8 @@ Foram escolhidas as seguintes tecnologias para desenvolver trabalho:
 1. Execute `$ docker-compose up` na pasta do backend para subir uma instancia do MySQL
 2. Execute `$ npm install` nas pastas do backend e do frontend para instalar dependencias
 3. Execute `$ npm start` na pasta do backend.
-4. Execute `$ npm start` na pasta do frontend.
+4. Rode as migrations do banco de dados com `$ npx knex migrate:latest`
+5. Execute `$ npm start` na pasta do frontend.
 
 Notas importantes: 
 + Nenhum dos ambientes está realmente configurado para produção. Por não ter se destinado a isso e por falta de tempo para realmente fazê-lo.

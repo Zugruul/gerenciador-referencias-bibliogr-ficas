@@ -6,7 +6,7 @@ exports.up = function(knex, Promise) {
         t.string('chapter').nullable();
         t.string('authors').notNull();
         t.string('edition').nullable();
-        t.string('year').notNull();
+        t.string('year').nullable();
         t.string('pages').nullable();
         t.enum('type', ['Periodic', 'Proceedings', 'Book', 'Excerpt', 'Eletronic']).defaultTo(null);
         t.enum('nature', ['complete', 'summarized', 'simple', 'expanded']).defaultTo(null);
